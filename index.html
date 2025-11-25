@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlacidConcepts - Connecting Businesses with Service Providers</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page-content active">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2><i class="fas fa-handshake"></i> PlacidConcepts</h2>
+                <h3 style="text-align: center; color: var(--dark-text); margin-bottom: 30px;">Welcome Back</h3>
+                
+                <div class="user-type-selector">
+                    <button class="user-type-btn active" data-type="client">
+                        <i class="fas fa-user"></i><br>Client
+                    </button>
+                    <button class="user-type-btn" data-type="partner">
+                        <i class="fas fa-users"></i><br>Partner
+                    </button>
+                    <button class="user-type-btn" data-type="company">
+                        <i class="fas fa-building"></i><br>Company
+                    </button>
+                </div>
+
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="loginEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <input type="hidden" id="loginUserType" value="client">
+                    <button type="submit" class="btn-submit">Login</button>
+                </form>
+
+                <div class="auth-links">
+                    <a href="#" onclick="showPage('forgotPage'); return false;">Forgot Password?</a>
+                    <br><br>
+                    <span>Don't have an account? </span>
+                    <a href="#" onclick="showPage('signupPage'); return false;">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signupPage" class="page-content">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2><i class="fas fa-handshake"></i> PlacidConcepts</h2>
+                <h3 style="text-align: center; color: var(--dark-text); margin-bottom: 30px;">Create Account</h3>
+                
+                <div class="user-type-selector">
+                    <button class="user-type-btn active" data-type="client">
+                        <i class="fas fa-user"></i><br>Client
+                    </button>
+                    <button class="user-type-btn" data-type="partner">
+                        <i class="fas fa-users"></i><br>Partner
+                    </button>
+                    <button class="user-type-btn" data-type="company">
+                        <i class="fas fa-building"></i><br>Company
+                    </button>
+                </div>
+
+                <form id="signupForm">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name / Company Name</label>
+                        <input type="text" class="form-control" id="signupName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="signupEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signupPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="signupConfirmPassword" required>
+                    </div>
+                    <input type="hidden" id="signupUserType" value="client">
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </form>
+
+                <div class="auth-links">
+                    <span>Already have an account? </span>
+                    <a href="#" onclick="showPage('loginPage'); return false;">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Page -->
+    <div id="forgotPage" class="page-content">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2><i class="fas fa-handshake"></i> PlacidConcepts</h2>
+                <h3 style="text-align: center; color: var(--dark-text); margin-bottom: 30px;">Reset Password</h3>
+                
+                <form id="forgotForm">
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="forgotEmail" required>
+                        <small class="text-muted">We'll send you a reset link to your email</small>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Reset Link</button>
+                </form>
+
+                <div class="auth-links">
+                    <a href="#" onclick="showPage('loginPage'); return false;">Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website -->
+    <div id="mainSite" class="page-content">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#home">
+                    <i class="fas fa-handshake"></i> PlacidConcepts
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#register-provider">Become a Provider</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn-login" onclick="logout()">Logout</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content">
+                        <h1>Connect. Collaborate. Succeed.</h1>
+                        <p>Your premier platform for outsourcing services. Connect with top-tier service providers and grow your business effortlessly.</p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-hero btn-hero-primary">Explore Services</a>
+                            <a href="#register-provider" class="btn btn-hero btn-hero-outline">Become a Provider</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image">
+                            <i class="fas fa-network-wired" style="font-size: 5rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Available Services</h2>
+                    <p>Discover a wide range of professional services from our trusted partners</p>
+                </div>
+
+                <div class="swiper servicesSwiper">
+                    <div class="swiper-wrapper" id="servicesContainer">
+                        <!-- Services will be dynamically loaded here -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose PlacidConcepts</h2>
+                    <p>We make outsourcing simple, efficient, and reliable</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Trusted Partners</h3>
+                            <p>All our service providers are vetted and verified to ensure quality and reliability for your business needs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Quick Matching</h3>
+                            <p>Our intelligent system quickly connects you with the right service providers based on your specific requirements.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Scalable Solutions</h3>
+                            <p>From startups to enterprises, we provide scalable outsourcing solutions that grow with your business.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Seamless Collaboration</h3>
+                            <p>Our platform facilitates smooth communication and project management between clients and providers.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h3>Cost Effective</h3>
+                            <p>Save time and money by accessing competitive pricing from multiple service providers in one place.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3>24/7 Support</h3>
+                            <p>Our dedicated support team is available round the clock to assist you with any questions or concerns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+        <!-- Provider Registration Section -->
+        <section id="register-provider" class="provider-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="provider-form">
+                            <h3>Register Your Service</h3>
+
+                            
+                            <form id="providerRegistrationForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Service Provider Name</label>
+                                        <input type="text" class="form-control" id="providerName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Service Category</label>
+                                        <select class="form-control" id="serviceCategory" required>
+                                            <option value="">Select Category</option>
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="Mobile Development">Mobile Development</option>
+                                            <option value="Graphic Design">Graphic Design</option>
+                                            <option value="Digital Marketing">Digital Marketing</option>
+                                            <option value="Content Writing">Content Writing</option>
+                                            <option value="Virtual Assistant">Virtual Assistant</option>
+                                            <option value="Data Entry">Data Entry</option>
+                                            <option value="SEO Services">SEO Services</option>
+                                            <option value="Video Production">Video Production</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Service Title</label>
+                                    <input type="text" class="form-control" id="serviceTitle" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Service Description</label>
+                                    <textarea class="form-control" id="serviceDescription" rows="4" required></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Contact Email</label>
+                                        <input type="email" class="form-control" id="providerEmail" required>
+                                    </div>
+                                    <label class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="providerPhone" required>
+
+                                         <div class="mb-3">
+                                    <label class="form-label">Website (Optional)</label>
+                                    <input type="url" class="form-control" id="providerWebsite" placeholder="https://">
+                                </div>
+
+                                </div>
+                                
+                                        
+
+                                        
+
+
+
+                               
+                                <button type="submit" class="btn-submit">Register Service</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h4><i class="fas fa-handshake"></i> PlacidConcepts</h4>
+                        <p>Your trusted platform for connecting businesses with top-tier service providers. We make outsourcing simple, efficient, and reliable.</p>
+                        <div class="social-icons mt-3">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#register-provider">Become a Provider</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <h4>Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">Design Services</a></li>
+                            <li><a href="#">Digital Marketing</a></li>
+                            <li><a href="#">Content Creation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <h4>Contact Us</h4>
+                        <ul class="footer-links">
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+                            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-envelope"></i> info@placidconcepts.com</li>
+                            <li><i class="fas fa-clock"></i> Mon - Fri: 9AM - 6PM</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2024 PlacidConcepts. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
+
+
+
+<!-- class="form-label">Service Provider Name</label>
+                                        <input type="text" class="form-control" id="providerName" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Service Category</label>
+                                        <select class="form-control" id="serviceCategory" required>
+                                            <option value="">Select Category</option>
+                                            <option value="Web Development">Web Development</option>
+                                            <option value="Mobile Development">Mobile Development</option>
+                                            <option value="Graphic Design">Graphic Design</option>
+                                            <option value="Digital Marketing">Digital Marketing</option>
+                                            <option value="Content Writing">Content Writing</option>
+                                            <option value="Virtual Assistant">Virtual Assistant</option>
+                                            <option value="Data Entry">Data Entry</option>
+                                            <option value="SEO Services">SEO Services</option>
+                                            <option value="Video Production">Video Production</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Service Title</label>
+                                    <input type="text" class="form-control" id="serviceTitle" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Service Description</label>
+                                    <textarea class="form-control" id="serviceDescription" rows="4" required></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Contact Email</label>
+                                        <input type="email" class="form-control" id="providerEmail" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label --> 
