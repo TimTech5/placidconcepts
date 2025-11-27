@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Placid Marketplace — Frontend Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">Placid<span>Concepts</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button id="add-listing" class="btn btn-outline">Join as Provider</button>
+        <button id="sign-in-btn" class="btn">Sign In</button>
+        <button href="../index.html" id="home-btn" class="btn">Home</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div style="text-align:center;margin-bottom:20px;">
+          <img src="../assets/placid-logo.png" alt="PlacidConcepts Logo" style="max-width:120px;height:auto;">
+        </div>
+        <h1>Find vetted professionals for any service</h1>
+        <p>Search local & remote professionals — compare ratings, reviews and starting prices.</p>
+
+        <form id="search-form" class="search-form" role="search" aria-label="Search providers">
+          <input id="search-input" type="search" placeholder="Search services or providers (e.g. plumber, accountant)" />
+          <input id="location-input" type="text" placeholder="Location (city or postal code)" />
+          <select id="category-select">
+            <option value="">All categories</option>
+            <option value="home">Home Services</option>
+            <option value="health">Health</option>
+            <option value="it">Tech / IT</option>
+            <option value="legal">Legal</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="accounting">Accounting</option>
+          </select>
+          <button class="btn" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="container controls">
+      <div class="controls-left">
+        <label>
+          Sort:
+          <select id="sort-select" aria-label="Sort providers">
+            <option value="featured">Featured</option>
+            <option value="rating">Highest rating</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+          </select>
+        </label>
+
+        <label class="filter-inline">
+          Rating:
+          <select id="rating-filter">
+            <option value="0">Any</option>
+            <option value="4">4+ stars</option>
+            <option value="4.5">4.5+ stars</option>
+          </select>
+        </label>
+
+        <label class="filter-inline">
+          Price:
+          <select id="price-filter">
+            <option value="">Any</option>
+            <option value="0-50">Up to $50</option>
+            <option value="50-150">$50–$150</option>
+            <option value="150+">$150+</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="controls-right">
+        <div class="result-summary" id="result-summary">Showing <span id="result-count">0</span> providers</div>
+      </div>
+    </section>
+
+    <section class="container grid-and-map">
+      <div id="providers-grid" class="providers-grid" aria-live="polite"></div>
+
+      <aside class="map-placeholder" aria-hidden="true">
+        <div class="map-box">
+          <p>Map placeholder</p>
+          <p>(Integrate real map like Google Maps / Mapbox in backend step)</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="container pagination" id="pagination"></section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Placid Concepts — Prototype</div>
+        <div class="footer-links">
+          <a href="#" aria-label="About">About</a>
+          <a href="#" aria-label="Terms">Terms</a>
+          <a href="#" aria-label="Privacy">Privacy</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Provider detail modal -->
+  <div id="provider-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Sign in / Join modal (UI-only) -->
+  <div id="auth-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="auth-close" aria-label="Close">&times;</button>
+      <h2 id="auth-title">Sign In</h2>
+      <form id="auth-form" class="auth-form">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <div class="auth-actions">
+          <button class="btn" type="submit">Sign In</button>
+          <button id="switch-to-join" class="btn btn-outline" type="button">Join as Provider</button>
+        </div>
+      </form>
+      <small class="auth-note">This is a frontend prototype — authentication is not implemented.</small>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h4>PlacidConcepts</h4>
+                <p>Your trusted platform for connecting businesses with top-tier service providers. We make outsourcing simple, efficient, and reliable.</p>
+                <div class="social-icons mt-3">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#register-provider">Become a Provider</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile Apps</a></li>
+                    <li><a href="#">Design Services</a></li>
+                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="#">Content Creation</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h4>Contact Us</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@placidconcepts.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 9AM - 6PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PlacidConcepts. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

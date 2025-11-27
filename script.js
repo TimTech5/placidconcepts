@@ -354,3 +354,21 @@
         console.log('Client: client@test.com / password123');
         console.log('Partner: partner@test.com / password123');
         console.log('Company: company@test.com / password123');
+
+        // Scroll to home section
+        function scrollToHome() {
+            const homeSection = document.getElementById('home');
+            if (homeSection) {
+                homeSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Make navbar collapse close when a link is clicked (mobile responsiveness)
+        document.querySelectorAll('.navbar-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    document.querySelector('.navbar-toggler').click();
+                }
+            });
+        });

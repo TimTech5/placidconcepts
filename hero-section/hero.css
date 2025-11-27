@@ -1,0 +1,190 @@
+/* -------------------------
+   COLOR PALETTE
+------------------------- */
+:root {
+    --primary-orange: #ff7a00;
+    --primary-orange-light: #ffead6;
+    --text-dark: #121212;
+    --text-light: #ffffff;
+    --gray-600: #555;
+    --gray-300: #eaeaea;
+    --tag-bg: #ffe8cf;
+
+    --blue-card: #dff1ff;
+    --green-card: #e6ffe9;
+    --purple-card: #f2e4ff;
+
+    --card-bg: #fff7ef;
+    --card-dark-bg: #2a2a2a;
+
+    --bg-light: #ffffff;
+    --bg-dark: #101010;
+
+    --shadow-light: 0 10px 30px rgba(255, 100, 0, 0.15);
+    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* DARK MODE */
+.dark {
+    --bg-light: var(--bg-dark);
+    --text-dark: #ffffff;
+    --card-bg: var(--card-dark-bg);
+    --shadow-light: var(--shadow-dark);
+}
+
+/* -------------------------
+   GLOBAL STYLE
+------------------------- */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    transition: 0.3s;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* -------------------------
+   NAVBAR
+------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 40px;
+}
+
+.theme-btn {
+    background: var(--tag-bg);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* -------------------------
+   MAIN LAYOUT
+------------------------- */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 50px;
+    gap: 50px;
+}
+
+.left {
+    flex: 1;
+}
+
+.highlight {
+    color: var(--primary-orange);
+}
+
+.subtext {
+    font-size: 18px;
+    color: var(--gray-600);
+    max-width: 450px;
+}
+
+.tags .tag {
+    background: var(--tag-bg);
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-right: 12px;
+    display: inline-block;
+    color: #b35d00;
+    font-size: 14px;
+}
+
+/* QUICK ACCESS */
+.quick-access-title {
+    margin-top: 40px;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    gap: 20px;
+}
+
+.access-card {
+    padding: 18px;
+    border-radius: 14px;
+    display: block;
+    box-shadow: var(--shadow-light);
+    transition: 0.2s;
+}
+
+.access-card:hover {
+    transform: translateY(-5px);
+}
+
+.blue { background: var(--blue-card); }
+.green { background: var(--green-card); }
+.purple { background: var(--purple-card); }
+
+.icon {
+    font-size: 24px;
+}
+
+/* RIGHT SIDE LOGIN CARD */
+.card {
+    width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow-light);
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    margin-top: 20px;
+    background: var(--primary-orange);
+    padding: 14px 22px;
+    color: var(--text-light);
+    border: none;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.terms {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.terms a {
+    color: var(--primary-orange);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .access-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
